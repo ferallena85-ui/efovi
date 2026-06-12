@@ -12,6 +12,9 @@ const navigation = [
   "Marketplace",
 ];
 
+const mobileNavigation = navigation.slice(0, 4);
+const mobileMoreNavigation = navigation.slice(4);
+
 const heroSlides = [
   {
     image:
@@ -126,7 +129,7 @@ function LogoMark({ priority = false }: { priority?: boolean }) {
         alt="EFOVI - Escuela de Formación para la Vida"
         width={500}
         height={200}
-        className="h-auto w-36 rounded-sm object-contain shadow-lg shadow-violet-950/15 sm:w-44 lg:w-52"
+        className="h-auto w-24 rounded-sm object-contain shadow-lg shadow-violet-950/15 sm:w-44 lg:w-52"
         priority={priority}
       />
     </a>
@@ -136,7 +139,7 @@ function LogoMark({ priority = false }: { priority?: boolean }) {
 function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-violet-100/80 bg-white/90 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
         <LogoMark priority />
         <nav className="hidden items-center gap-1 rounded-full border border-violet-100 bg-violet-50/70 px-2 py-1 lg:flex">
           {navigation.map((item) => (
@@ -149,31 +152,49 @@ function Header() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <a
             href="#mi-cuenta"
-            className="hidden rounded-full px-4 py-2 text-sm font-semibold text-violet-950 transition hover:bg-violet-50 md:inline-flex"
+            className="inline-flex rounded-full px-3 py-2 text-xs font-semibold text-violet-950 transition hover:bg-violet-50 sm:px-4 sm:text-sm"
           >
             Mi Cuenta
           </a>
           <a
             href="#inscripcion"
-            className="rounded-full bg-[#5f168f] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-violet-950/25 transition hover:bg-[#310b63]"
+            className="rounded-full bg-[#5f168f] px-3 py-2 text-xs font-bold text-white shadow-lg shadow-violet-950/25 transition hover:bg-[#310b63] sm:px-5 sm:py-2.5 sm:text-sm"
           >
             Inscribirme
           </a>
         </div>
       </div>
-      <nav className="flex gap-2 overflow-x-auto border-t border-violet-100 px-4 py-3 lg:hidden">
-        {navigation.map((item) => (
-          <a
-            key={item}
-            href={`#${item.toLowerCase().replaceAll(" ", "-")}`}
-            className="shrink-0 rounded-full bg-violet-50 px-3 py-2 text-sm font-semibold text-violet-900"
-          >
-            {item}
-          </a>
-        ))}
+      <nav className="border-t border-violet-100 px-3 py-3 lg:hidden">
+        <div className="relative flex flex-wrap items-center gap-2">
+          {mobileNavigation.map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replaceAll(" ", "-")}`}
+              className="rounded-full bg-violet-50 px-3 py-2 text-xs font-semibold text-violet-900 sm:text-sm"
+            >
+              {item}
+            </a>
+          ))}
+          <details className="relative">
+            <summary className="list-none rounded-full bg-violet-900 px-3 py-2 text-xs font-bold text-white shadow-sm sm:text-sm">
+              Más
+            </summary>
+            <div className="absolute right-0 top-11 z-50 w-48 overflow-hidden rounded-lg border border-violet-100 bg-white p-2 shadow-xl shadow-violet-950/15">
+              {mobileMoreNavigation.map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase().replaceAll(" ", "-")}`}
+                  className="block rounded-md px-3 py-2 text-sm font-semibold text-violet-950 transition hover:bg-violet-50"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </details>
+        </div>
       </nav>
     </header>
   );
@@ -196,7 +217,7 @@ function HeroCarousel() {
       </div>
       <div className="relative mx-auto flex min-h-[550px] max-w-7xl items-start px-4 pb-8 pt-9 sm:min-h-[520px] sm:px-6 sm:pb-9 sm:pt-10 lg:min-h-[525px] lg:px-8 lg:pb-10 lg:pt-11">
         <div className="w-full max-w-5xl">
-          <div className="mb-4 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-violet-50 backdrop-blur sm:mb-5">
+          <div className="hidden">
             Escuela de Formación para la Vida
           </div>
           <div className="efovi-copy-stack relative min-h-[345px] sm:min-h-[290px] lg:min-h-[245px] xl:min-h-[280px]">
