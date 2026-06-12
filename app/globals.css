@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf8ff;
+  --foreground: #1d1230;
+  --efovi-purple: #5f168f;
+  --efovi-purple-dark: #2b0c58;
+  --efovi-purple-ink: #180832;
+  --efovi-lilac: #efe5ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.efovi-slide {
+  animation: efovi-slide 18s infinite;
+  opacity: 0;
+  transform: scale(1.04);
+}
+
+.efovi-copy {
+  animation: efovi-copy 18s infinite;
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.efovi-copy-stack {
+  isolation: isolate;
+}
+
+.play-triangle {
+  border-bottom: 12px solid transparent;
+  border-left: 18px solid #3f247b;
+  border-top: 12px solid transparent;
+  height: 0;
+  margin-left: 4px;
+  width: 0;
+}
+
+@keyframes efovi-slide {
+  0% {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  6%,
+  32% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  38%,
+  100% {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes efovi-copy {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  7%,
+  31% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  37%,
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
