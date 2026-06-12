@@ -156,9 +156,9 @@ function HeaderBrand() {
 function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-violet-100/80 bg-white/90 backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-none items-center justify-between gap-2 px-3 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:justify-start lg:gap-0 lg:px-5 xl:px-7 2xl:px-8">
+      <div className="mx-auto flex w-full max-w-none items-center justify-between gap-2 px-3 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:gap-4 lg:px-5 xl:gap-6 xl:px-7 2xl:px-8">
         <HeaderBrand />
-        <nav className="hidden items-center gap-1 rounded-full border border-violet-100 bg-violet-50/70 px-2 py-1 lg:ml-6 lg:flex xl:ml-8">
+        <nav className="hidden items-center gap-1 justify-self-center rounded-full border border-violet-100 bg-violet-50/70 px-2 py-1 lg:flex">
           {navigation.map((item) => (
             <a
               key={item}
@@ -169,7 +169,7 @@ function Header() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-1.5 sm:gap-2 lg:ml-auto">
+        <div className="flex items-center gap-1.5 sm:gap-2 lg:justify-self-end">
           <a
             href="#mi-cuenta"
             className="inline-flex rounded-full px-3 py-2 text-xs font-semibold text-violet-950 transition hover:bg-violet-50 sm:px-4 sm:text-sm"
