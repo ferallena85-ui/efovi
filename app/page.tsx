@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 const logoSrc = "/efovi-logo-oficial.jpeg";
+const vidaPlenaLogoSrc = "/logo-vida-plena.jpeg";
 
 const navigation = [
   "La Escuela",
@@ -136,11 +137,27 @@ function LogoMark({ priority = false }: { priority?: boolean }) {
   );
 }
 
+function HeaderBrand() {
+  return (
+    <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+      <Image
+        src={vidaPlenaLogoSrc}
+        alt="Vida Plena Comunidad"
+        width={1536}
+        height={1024}
+        className="h-auto w-7 shrink-0 object-contain sm:w-16 lg:w-20"
+        priority
+      />
+      <LogoMark priority />
+    </div>
+  );
+}
+
 function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-violet-100/80 bg-white/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
-        <LogoMark priority />
+        <HeaderBrand />
         <nav className="hidden items-center gap-1 rounded-full border border-violet-100 bg-violet-50/70 px-2 py-1 lg:flex">
           {navigation.map((item) => (
             <a
@@ -167,19 +184,19 @@ function Header() {
           </a>
         </div>
       </div>
-      <nav className="border-t border-violet-100 px-3 py-3 lg:hidden">
-        <div className="relative flex flex-wrap items-center gap-2">
+      <nav className="border-t border-violet-100 px-2 py-3 sm:px-3 lg:hidden">
+        <div className="relative flex flex-nowrap items-center justify-between gap-1 sm:gap-2">
           {mobileNavigation.map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase().replaceAll(" ", "-")}`}
-              className="rounded-full bg-violet-50 px-3 py-2 text-xs font-semibold text-violet-900 sm:text-sm"
+              className="whitespace-nowrap rounded-full bg-violet-50 px-2 py-2 text-[10px] font-semibold text-violet-900 sm:px-3 sm:text-sm"
             >
               {item}
             </a>
           ))}
-          <details className="relative">
-            <summary className="list-none rounded-full bg-violet-900 px-3 py-2 text-xs font-bold text-white shadow-sm sm:text-sm">
+          <details className="relative shrink-0">
+            <summary className="list-none whitespace-nowrap rounded-full bg-violet-900 px-2 py-2 text-[10px] font-bold text-white shadow-sm sm:px-3 sm:text-sm">
               Más
             </summary>
             <div className="absolute right-0 top-11 z-50 w-48 overflow-hidden rounded-lg border border-violet-100 bg-white p-2 shadow-xl shadow-violet-950/15">
