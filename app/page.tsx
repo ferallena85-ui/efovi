@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const logoSrc = "/efovi-logo-oficial.jpeg";
-const vidaPlenaLogoSrc = "/logo-vida-plena.jpeg";
+const vidaPlenaLogoSrc = "/logo-vida-plena-recortado.jpeg";
 
 const navigation = [
   "La Escuela",
@@ -139,13 +139,13 @@ function LogoMark({ priority = false }: { priority?: boolean }) {
 
 function HeaderBrand() {
   return (
-    <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+    <div className="flex shrink-0 items-center gap-1 sm:gap-2">
       <Image
         src={vidaPlenaLogoSrc}
         alt="Vida Plena Comunidad"
-        width={1536}
-        height={1024}
-        className="h-auto w-7 shrink-0 object-contain sm:w-16 lg:w-20"
+        width={795}
+        height={789}
+        className="h-auto w-12 shrink-0 object-contain sm:w-32 lg:w-40"
         priority
       />
       <LogoMark priority />
